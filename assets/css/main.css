@@ -151,6 +151,7 @@ h6 {
   padding: 0 15px;
   transition: all ease-in-out 0.3s;
   overflow-y: auto;
+  overflow-x: visible;
   z-index: 997;
   min-width: 200px;
 }
@@ -239,6 +240,14 @@ h6 {
   font-size: 20px;
 }
 
+.navmenu a svg.navicon,
+.navmenu a:focus svg.navicon {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
 .navmenu a span,
 .navmenu a:focus span {
   padding: 0 5px 0 7px;
@@ -267,7 +276,9 @@ h6 {
 
 .navmenu a:hover,
 .navmenu li:hover>a {
-  max-width: 100%;
+  width: max-content;
+  max-width: none;
+  height: auto;
   color: var(--contrast-color);
 }
 
