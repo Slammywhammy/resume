@@ -20,3 +20,6 @@ samconfig.toml
 # Planning docs
 PROJECT.md
 CONTENT.md
+
+#Forms folder
+forms/
