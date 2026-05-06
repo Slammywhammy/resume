@@ -6,14 +6,14 @@ Thumbs.db
 .vscode/
 *.code-workspace
 
-# Environment variables (if you add any later)
+# Environment variables
 .env
 .env.local
 
 # Node (in case any tooling gets added)
 node_modules/
 
-# AWS SAM build artifacts (for when you build the backend)
+# AWS SAM build artifacts
 .aws-sam/
 samconfig.toml
 
@@ -23,3 +23,7 @@ CONTENT.md
 
 #Forms folder
 forms/
+
+# SAM build artifacts
+backend/.aws-sam/
+backend/samconfig.toml

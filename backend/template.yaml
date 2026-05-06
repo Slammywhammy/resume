@@ -1,0 +1,58 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Cloud Resume - Visitor Counter Backend
+
+Globals:
+  Function:
+    Timeout: 10
+    Runtime: python3.12
+
+Resources:
+
+  VisitorCountTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: visitor-count
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+
+  VisitorApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      StageName: prod
+      Cors:
+        AllowMethods: "'GET,OPTIONS'"
+        AllowHeaders: "'Content-Type'"
+        AllowOrigin: "'https://sam-gardner.com'"
+
+  VisitorCountFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: visitor_counter/
+      Handler: app.lambda_handler
+      Environment:
+        Variables:
+          TABLE_NAME: !Ref VisitorCountTable
+      Policies:
+        - Statement:
+            - Effect: Allow
+              Action:
+                - dynamodb:UpdateItem
+              Resource: !GetAtt VisitorCountTable.Arn
+      Events:
+        GetVisitors:
+          Type: Api
+          Properties:
+            Path: /visitors
+            Method: get
+            RestApiId: !Ref VisitorApi
+
+Outputs:
+  ApiUrl:
+    Description: Visitor counter endpoint — paste into assets/js/main.js as API_URL
+    Value: !Sub "https://${VisitorApi}.execute-api.${AWS::Region}.amazonaws.com/prod/visitors"

@@ -152,7 +152,7 @@
    * Visitor counter — calls AWS API Gateway endpoint on page load.
    * Set API_URL after backend deployment.
    */
-  const API_URL = '';
+  const API_URL = 'https://br1vgvb470.execute-api.us-east-1.amazonaws.com/prod/visitors';
 
   async function updateVisitorCount() {
     if (!API_URL) return;
