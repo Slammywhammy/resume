@@ -5,17 +5,17 @@ Personal portfolio and IT resume site. Built as an adaptation of the
 
 ## Stack
 
-- **Frontend:** HTML, CSS, Bootstrap 5 — hosted on Hostinger
-- **Backend:** AWS Lambda + API Gateway + DynamoDB — serverless visitor counter
+- **Frontend:** HTML, CSS, Bootstrap 5 - hosted on Hostinger
+- **Backend:** AWS Lambda + API Gateway + DynamoDB - serverless visitor counter
 - **IaC:** AWS SAM
 - **DNS:** Cloudflare
-- **CI/CD:** GitHub Actions (coming soon)
+- **CI/CD:** GitHub Actions
 
 ## How it works
 
 Static frontend calls an AWS API Gateway endpoint on page load. A Python 
 Lambda function increments a visitor counter in DynamoDB and returns the 
-current count. That's it.
+current count.
 
 ## Built with
 
