@@ -1,0 +1,22 @@
+# OS garbage
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+*.code-workspace
+
+# Environment variables (if you add any later)
+.env
+.env.local
+
+# Node (in case any tooling gets added)
+node_modules/
+
+# AWS SAM build artifacts (for when you build the backend)
+.aws-sam/
+samconfig.toml
+
+# Planning docs
+PROJECT.md
+CONTENT.md
