@@ -7,6 +7,7 @@ table = dynamodb.Table(os.environ['TABLE_NAME'])
 
 CORS_ORIGIN = 'https://sam-gardner.com'
 
+#Hello, you beautiful human!
 
 def lambda_handler(event, context):
     response = table.update_item(
