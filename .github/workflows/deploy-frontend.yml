@@ -1,0 +1,19 @@
+name: Deploy Frontend
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - 'backend/**'
+      - '*.md'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Trigger Hostinger deployment webhook
+        run: curl -X POST ${{ secrets.HOSTINGER_WEBHOOK_URL }}
