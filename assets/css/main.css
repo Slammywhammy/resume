@@ -244,8 +244,12 @@ h6 {
 .navmenu a:focus svg.navicon {
   width: 20px;
   height: 20px;
-  fill: currentColor;
   flex-shrink: 0;
+}
+
+.navmenu a svg.navicon path,
+.navmenu a:focus svg.navicon path {
+  fill: currentColor;
 }
 
 .navmenu a span,
